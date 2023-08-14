@@ -1,18 +1,37 @@
-# S1→S2スキルアップ研修 2.チーム解発[実装課題]テンプレート
-## 概要
-実装課題は、設計課題と同様、2ヶ月目のカリキュラム(チーム開発(ECサイト))に則ったものです。
-2ヶ月目カリキュラムの重要な部分について実装できて、該当事項を教えられるようになることを目標にしています。
+# nagano-cake
+**ECサイト 未実装部分あり**
 
-ただし、課題の都合上、作成しない画面や機能があるので、ECサイトの完成には至りません。
+ケーキ屋のECサイト
 
-各機能の要件については、[Docbase](https://docbase.io/posts/981614/sharing/c6bf1283-d32e-4ba8-bc43-a8c869bd3f4e)を参照して下さい。
+ユーザー機能、商品の注文、カート機能、履歴など
 
-## branch名
-1. 認証機能 → 1_feature_login
-2. アカウント管理機能 → 2_feature_account_manage
-3. 商品登録 → 3_feature_add_items
-4. カート機能 → 4_feature_carts
-5. 配送先機能 → 5_delivery_target
-6. 注文機能 → 6_feature_orders
-7. 検索機能 → 7_feature_search
-8. ジャンル検索機能 → 8_genre_search
+管理者機能、ジャンル編集、商品編集、注文・製作ステータス更新、ユーザー編集など
+
+## Usage
+```
+$ bundle install
+$ rails webpacker:install
+$ rails webpacker:compile
+$ rails db:migrate
+```
+```
+$ rails s
+```
+If "Webpacker::Manifest::MissingEntryError" occur
+```
+$ yarn add @babel/plugin-proposal-private-methods @babel/plugin-proposal-private-property-in-object
+```
+
+## Version
+※2023/07/01　時点
+- Rails 6.1.7.3
+- ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
+- node v16.19.0
+- yarn 1.22.19
+- Version: ImageMagick 7.1.1-5 Q16-HDRI x86_64 92a5afcfa:20230326 https://imagemagick.org
+  - Copyright: (C) 1999 ImageMagick Studio LLC
+  - License: https://imagemagick.org/script/license.php
+  - Features: Cipher DPC HDRI OpenMP(4.5)
+  - Delegates (built-in): jng jpeg lzma png tiff xml zlib
+  - Compiler: gcc (7.3)
+- sqlite3 3.42.0
