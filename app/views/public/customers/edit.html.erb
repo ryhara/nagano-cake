@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="mx-auto">
+    <h2><span class="badge bg-light text-dark my-3">会員情報編集</span></h2>
+    
+    <%= form_with model:@customer, url: customers_information_path, method: :patch do |f| %>
+      <%= render "public/shared/error_messages", resource: @customer %>
+    
+      <div class="form-group row">
+        <%= f.label "名前", class:"col-sm-4 col-form-label" %>
+        <%= f.label :last_name, "姓", class:"col-sm-1 col-form-label" %>
+        <div class="col-sm-2">
+          <%= f.text_field :last_name, autofocus: true, class:"form-control"  %>
+        </div>
+        　
+        <%= f.label :first_name, "名", class:"col-sm-1 col-form-label"%>
+        <div class="col-sm-2">
+          <%= f.text_field :first_name, class:"form-control"%>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label "フリガナ", class:"col-sm-4 col-form-label" %>
+        <%= f.label :last_name_kana, "セイ", class:"col-sm-1 col-form-label" %>
+        <div class="col-sm-2">
+          <%= f.text_field :last_name_kana, class:"form-control" %>
+        </div>　
+        <%= f.label :first_name_kana, "メイ", class:"col-sm-1 col-form-label" %>
+        <div class="col-sm-2">
+          <%= f.text_field :first_name_kana, class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :post_code, "郵便番号(ハイフンなし)", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :post_code, class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :address, "住所", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :address, class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :telephone_number, "電話番号(ハイフンなし)", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :telephone_number, class:"form-control" %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <%= f.label :email, "メールアドレス", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <div class="mx-auto">
+          <%= f.submit "編集内容を保存", class:"btn btn-success mt-1" %>
+          <%= link_to customers_unsubscribe_path do %>
+            <button type="button" class="btn btn-danger ml-3 mt-1">退会する</button>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

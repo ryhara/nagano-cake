@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+      <h2><span class="badge bg-light text-dark my-3">マイページ</span></h2>
+    </div>
+    <div class="row">
+      <span class=""><b>登録情報</b></span>
+      <%= link_to customers_information_edit_path do %>
+        <button type="button" class="btn btn-success ml-3">編集する</button>
+      <% end %>
+    </div>
+    
+    <div class="row">
+    <table class="table table-bordered mt-5">
+      <thead class="thead-light">
+        <tr>
+          <th class="table-secondary">氏名</th>
+          <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">カナ</th>
+          <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">郵便番号</th>
+          <td><%= @customer.post_code %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+         <tr>
+          <th class="table-secondary">電話番号</th>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+         <tr>
+          <th class="table-secondary">メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+      </thead>
+    </table>
+    </div>
+    <div class="row">
+      <span class=""><b>配送先　</b></span>
+      <%= link_to addresses_path do %>
+        <button type="button" class="btn btn-primary ml-3">一覧を見る</button><br>
+      <% end %>
+    </div>
+    <div class="row">
+      <span class="my-3"><b>注文履歴</b></span>
+      <button type="button" class="btn btn-primary my-3 ml-3">一覧を見る</button>
+    </div>
+</div>

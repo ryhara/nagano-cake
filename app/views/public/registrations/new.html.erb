@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="mx-auto">
+    <h2><span class="badge bg-light text-dark my-3">新規会員登録</span></h2>
+    
+    <%= form_with model:@customer, url: customer_registration_path do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+    
+      <div class="form-group row">
+        <%= f.label "名前", class:"col-sm-4 col-form-label" %>
+        <%= f.label :last_name, "姓" %>
+        <div class="col-sm-3">
+          <%= f.text_field :last_name, autofocus: true, class:"form-control" %>
+        </div>
+        　
+        <%= f.label :first_name, "名" %>
+        <div class="col-sm-3">
+          <%= f.text_field :first_name, class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label "フリガナ", class:"col-sm-4 col-form-label" %>
+        <%= f.label :last_name_kana, "セイ" %>
+        <div class="col-sm-3">
+          <%= f.text_field :last_name_kana, class:"form-control" %>
+        </div>
+        　
+        <%= f.label :first_name_kana, "メイ" %>
+        <div class="col-sm-3">
+          <%= f.text_field :first_name_kana, class:"form-control" %>
+        </div>
+      </div>
+      
+      
+      <div class="form-group row">
+        <%= f.label :email, "メールアドレス", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :post_code, "郵便番号(ハイフンなし)", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :post_code, class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :address, "住所", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :address, class:"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :telephone_number, "電話番号(ハイフンなし)", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :telephone_number, class:"form-control" %>
+        </div>
+      </div>
+      
+    
+      <div class="form-group row">
+        <% if @minimum_password_length %>
+          <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)", class:"col-sm-4 col-form-label" %>
+        <% else %>
+          <%= f.label :password, "パスワード(8文字以上)", class:"col-sm-4 col-form-label" %>
+        <% end %>
+        
+        <div class="col-sm-6">
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <%= f.label :password_confirmation, "パスワード(確認用)", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-6">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <div class="actions mt-1 mx-auto">
+          <%= f.submit "新規登録", class:"btn btn-success" %>
+        </div>
+      </div>
+    <% end %>
+    <h2><span class="badge bg-light text-dark mt-5">既に登録済みの方</span></h2>
+    <p><%= render "public/shared/links" %> からログインしてください</p>
+    
+  </div>
+</div>
+

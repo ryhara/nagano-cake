@@ -1,0 +1,40 @@
+<div class="container ">
+    <div class="row d-frex my-3">
+      <div class="mr-auto">
+        <h2><span class="badge bg-light text-dark">商品一覧</span></h2>
+      </div>
+      <div>
+        <%= link_to new_admin_item_path do %>
+          <button type="button" class="btn btn-secondary mr-5 mt-2">商品新規登録</button>
+        <% end %>
+      </div>
+    </div>
+     <table class="table table-bordered mt-5">
+      <thead class="thead-light">
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜き価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+          <td>
+            <%= link_to admin_item_path(item.id) do%>
+              <%= item.name %>
+            <% end %>
+          </td>
+          <td><%= item.non_taxed_price %></td>
+          <td><%= item.genre.name %> </td>
+          <% if item.is_selling == false %>
+            <td class="text-secondary font-weight-bold">販売停止中</td>
+          <% else %>
+            <td class="text-success font-weight-bold">販売中</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+     </table>  
+</div>

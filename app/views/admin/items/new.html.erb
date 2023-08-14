@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="mx-auto">
+    <h2><span class="badge bg-light text-dark my-3">商品新規登録</span></h2>
+    <%= form_with model:@item, url: admin_items_path ,　method: :post do |f| %>
+      <div class="form-group">
+        <%= f.label :image, "商品画像　　　　" %>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, "商品名　　　　　" %>
+        <%= f.text_field :name, placeholder: "商品名"%>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :description, "商品説明　　　　" %>
+        <%= f.text_area :description, placeholder: "ここに説明文を記述" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :genre_id, "ジャンル　　　　" %>
+        <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "選択してください") %>
+      </div>
+      <div class="field">
+        <%= f.label :non_taxed_price, "税抜価格　　　　" %>
+        <%= f.number_field :non_taxed_price %>
+      </div>
+      <div class="form-group">
+        <%= f.label :genre_id, "販売ステータス　" %>
+        <%= f.radio_button :is_selling, true %>販売中　　<%= f.radio_button :is_selling, false %>販売停止中
+      </div>
+      <div class="actions mt-1">
+        <%= f.submit "新規登録", class:"btn btn-success w-25" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,85 @@
+<div class="container">
+  <div>
+    <h2><span class="badge bg-light text-dark mt-4">注文履歴詳細</span></h2>
+  </div>
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>購入者</th>
+          <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>注文日</th>
+          <td><%= @order.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td><%= @order.full_address %></td>
+        </tr>
+        <tr>
+          <th>支払い方法</th>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <th>注文ステータス　</th>
+          <td>
+            <%= form_with model: @order, url: admin_order_path(@order.id) ,　method: :patch do |f| %>
+              <%= f.select :order_status, [["入金待ち","waiting"],["入金確認", "confirming"],["製作中","making"],["発送準備中","preparing"],["発送済み", "shipping"]], {prompt: @order.order_status_i18n} %>
+              <%= f.submit "更新", class:"btn btn-success ml-3" %>
+            <% end %>
+          </td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-8">
+    <table class="table table-bordered mt-3">
+      <thead class="thead-light">
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th>製作ステータス</th>
+      </thead>
+      <tbody>
+        <% @order.order_items.each do |order_item| %>
+        <tr>
+          <td><%=order_item.item.name %></td>
+          <td><%= order_item.taxed_price %></td>
+          <td>
+            <%= order_item.item_count %>
+          </td>
+          <td><%= order_item.taxed_price * order_item.item_count %></td>
+          <td>
+            <%= form_with model:[@order, order_item], url: admin_order_order_item_path(@order.id, order_item.id) ,　method: :patch do |f| %>
+              <%= f.select :making_status, [["着手不可","cannot_start"],["製作待ち", "waiting"],["製作中","making"],["製作完了","complete"]], {prompt: order_item.making_status_i18n} %>
+              <%= f.submit "更新", class:"btn btn-success ml-3" %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <div class="col-3 mt-4">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>商品合計</th>
+          <td><%= @order.billing_amount - @order.shipping_fee  %>　円</td>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <td><%= @order.shipping_fee %>　円</td>
+        </tr>
+        <tr>
+          <th>請求金額合計</th>
+          <td><%= @order.billing_amount %>　円</td>
+        </tr>
+      </thead>
+    </table>
+    </div>
+  </div>
+</div>

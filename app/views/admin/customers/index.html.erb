@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <h2><span class="badge bg-light text-dark my-3">マイページ</span></h2>
+     <table class="table table-bordered mt-5">
+      <thead class="thead-light">
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= customer.last_name %><%= customer.first_name %></td>
+          <td><%= customer.email %></td>
+          <% if customer.is_unsubscribed == false %>
+            <td class="text-success font-weight-bold">有効</td>
+          <% else %>
+            <td class="text-secondary font-weight-bold">退会</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+     </table>  
+    
+  </div>
+</div>

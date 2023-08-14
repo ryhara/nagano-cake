@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row d-frex my-3">
+      <div class="mr-auto">
+        <h2><span class="badge bg-light text-dark">商品詳細</span></h2>
+      </div>
+  </div>
+  <div class="row mx-auto">
+    <div class="col-3 mt-5">
+      <%= image_tag(@item.get_image(200,100)) %>
+    </div>
+    <div class="col-7">
+      <div class="my-5">
+      <table>
+        <tbody>
+          <tr>
+            <th>商品名</th>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <th>商品説明</th>
+            <td><%= @item.description %></td>
+          </tr>
+          <tr>
+            <th>ジャンル</th>
+            <td><%= @item.genre.name %></td>
+          </tr>
+          <tr>
+            <th>税込価格(税抜価格)</th>
+            <td>￥ <%= @item.with_tax_price %>(<%= @item.non_taxed_price %>)</td>
+          </tr>
+          <tr>
+            <th>販売ステータス</th>
+            <% if @item.is_selling == false %>
+              <td class="text-secondary font-weight-bold">販売停止中</td>
+            <% else %>
+              <td class="text-success font-weight-bold">販売中</td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="button" class="btn btn-success mt-3">編集する</button>
+      </div>
+    </div>
+  </div>
+</div>
