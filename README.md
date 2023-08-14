@@ -23,6 +23,7 @@ $ bundle install
 $ rails webpacker:install (when asked, answer Y)
 $ rails webpacker:compile
 $ rails db:migrate
+$ rails db:seed
 ```
 ```
 $ rails s
