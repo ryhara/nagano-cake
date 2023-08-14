@@ -7,10 +7,20 @@
 
 管理者機能、ジャンル編集、商品編集、注文・製作ステータス更新、ユーザー編集など
 
+## 使用方法
+- 一般ユーザー
+  - 新規登録を行ってからログイン
+- 管理者
+  - .../adminにアクセスし、管理者アドレスとパスワードでログイン
+```
+email: "test@mail"
+password: "123456"
+```
+
 ## Usage
 ```
 $ bundle install
-$ rails webpacker:install
+$ rails webpacker:install (when asked, answer Y)
 $ rails webpacker:compile
 $ rails db:migrate
 ```
