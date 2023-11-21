@@ -7,6 +7,35 @@
 
 管理者機能、ジャンル編集、商品編集、注文・製作ステータス更新、ユーザー編集など
 
+## Images
+- User
+<p align="center">
+  <img src="img/home.png" alt="img/home.png" width="200"/>
+  <img src="img/signup.png" alt="img/signup.png" width="200"/>
+  <img src="img/my_page.png" alt="img/my_page.png" width="200"/>
+  <img src="img/user_edit.png" alt="img/user_edit.png" width="200"/>
+  <img src="img/user_exit.png" alt="img/user_exit.png" width="200"/>
+  <img src="img/address.png" alt="img/address.png" width="200"/>
+  <img src="img/address_edit.png" alt="img/address_edit.png" width="200"/>
+  <img src="img/items.png" alt="img/items.png" width="200"/>
+  <img src="img/item_detail.png" alt="img/item_detail.png" width="200"/>
+  <img src="img/cart.png" alt="img/cart.png" width="200"/>
+  <img src="img/order_info.png" alt="img/order_info.png" width="200"/>
+  <img src="img/order_confirm.png" alt="img/order_confirm.png" width="200"/>
+</p>
+
+- Admin
+<p align="center">
+  <img src="img/admin_login.png" alt="img/admin_login.png" width="200"/>
+  <img src="img/admin_items.png" alt="img/admin_items.png" width="200"/>
+  <img src="img/admin_item_detail.png" alt="img/admin_item_detail.png" width="200"/>
+  <img src="img/admin_item_create.png" alt="img/admin_item_create.png" width="200"/>
+  <img src="img/admin_users.png" alt="img/admin_users.png" width="200"/>
+  <img src="img/admin_genre.png" alt="img/admin_genre.png" width="200"/>
+  <img src="img/admin_order.png" alt="img/admin_order.png" width="200"/>
+  <img src="img/admin_order_detail.png" alt="img/admin_order_detail.png" width="200"/>
+</p>
+
 ## 使用方法
 - 一般ユーザー
   - 新規登録を行ってからログイン
